@@ -1,18 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import HomeScreen from './src/screens/HomeScreen';
-import AllItems from './src/screens/AllItems';
-import CreateScreen from './src/screens/CreateScreen';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { ItemProvider } from './src/context/ItemContext';
+import AppNavigator from './src/navigation/AppNavigator';
 
 const App = () => {
   return (
-    <GestureHandlerRootView>
-      <HomeScreen />
-    </GestureHandlerRootView>
-  )
-}
+    <ItemProvider>
+      <NavigationContainer>
+        <AppNavigator />
+      </NavigationContainer>
+    </ItemProvider>
+  );
+};
 
-export default App
-
-const styles = StyleSheet.create({})
+export default App;
